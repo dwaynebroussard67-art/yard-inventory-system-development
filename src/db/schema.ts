@@ -122,7 +122,6 @@ export const movements = pgTable("movements", {
   index("idx_mov_job").on(t.jobId),
   index("idx_mov_employee").on(t.employeeId),
   index("idx_mov_server_time").on(t.serverTime),
-  unique("movements_client_uuid_unique").on(t.clientUuid),
 ]);
 
 // ── RELATIONS ─────────────────────────────────────────────────────────────────
