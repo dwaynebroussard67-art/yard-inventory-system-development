@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --forge-orange: #f97316;
+  --forge-orange-dark: #ea580c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Touch-friendly tap targets */
+button, a, [role="button"] {
+  min-height: 44px;
+}
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+/* QR scanner overlay */
+.qr-scanner-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Print styles for labels */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-label {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* Pulse animation for sync indicator */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(249, 115, 22, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+.pulse-orange {
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
